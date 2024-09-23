@@ -1,0 +1,33 @@
+document.querySelectorAll('.plan button').forEach(button => {
+    button.addEventListener('click', () => {
+        alert('Obrigado por assinar o IAChat!');
+        // Aqui você pode adicionar código para redirecionar para uma página de pagamento
+    });
+});
+
+document.getElementById('send-btn').addEventListener('click', async () => {
+    const userInput = document.getElementById('user-input').value;
+    if (userInput.trim() === '') return;
+
+    const chatBox = document.getElementById('chat-box');
+    chatBox.innerHTML += `<p><strong>Você:</strong> ${userInput}</p>`;
+    chatBox.innerHTML += `<p><em>Carregando...</em></p>`;
+    document.getElementById('user-input').value = '';
+
+    const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer SUA_CHAVE_DE_API`
+        },
+        body: JSON.stringify({
+            prompt: userInput,
+            max_tokens: 150
+        })
+    });
+
+    const data = await response.json();
+    const botReply = data.choices[0].text.trim();
+    chatBox.innerHTML = chatBox.innerHTML.replace('<p><em>Carregando...</em></p>', `<p><strong>IA:</strong> ${botReply}</p>`);
+    chatBox.scrollTop = chatBox.scrollHeight;
+});
