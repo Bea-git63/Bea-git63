@@ -1,0 +1,6 @@
+document.querySelectorAll('.plan button').forEach(button => {
+    button.addEventListener('click', () => {
+        alert('Obrigado por assinar o IAChat!');
+        // Aqui você pode adicionar código para redirecionar para uma página de pagamento
+    });
+});
