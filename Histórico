@@ -1,0 +1,15 @@
+document.getElementById('login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+    // Adicione lógica de autenticação aqui
+    alert(`Usuário ${username} logado com sucesso!`);
+});
+
+document.getElementById('register-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('register-username').value;
+    const password = document.getElementById('register-password').value;
+    // Adicione lógica de registro aqui
+    alert(`Usuário ${username} registrado com sucesso!`);
+});
