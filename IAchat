@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAChat - Assinatura</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao IAChat</h1>
+    </header>
+    <main>
+        <section id="plans">
+            <h2>Planos de Assinatura</h2>
+            <div class="plan">
+                <h3>Plano Básico</h3>
+                <p>R$15/mês</p>
+                <button>Assinar</button>
+            </div>
+            <div class="plan">
+                <h3>Plano Premium</h3>
+                <p>R$30/mês</p>
+                <button>Assinar</button>
+            </div>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+#plans {
+    display: flex;
+    justify-content: space-around;
+}
+
+.plan {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    width: 30%;
+}
+
+.plan h3 {
+    margin-top: 0;
+}
+
+.plan button {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.plan button:hover {
+    background-color: #218838;
+}
+document.querySelectorAll('.plan button').forEach(button => {
+    button.addEventListener('click', () => {
+        alert('Obrigado por assinar o IAChat!');
+        // Aqui você pode adicionar código para redirecionar para uma página de pagamento
+    });
+});
